@@ -104,8 +104,8 @@ touch "$project_root_dir/ansible.cfg"
 cat <<EOF > "$project_root_dir/ansible.cfg"
 [defaults]
 host_key_checking = False
-remote_user = ubuntu
-private_key_file = ~/.ssh/disposible-sshkey
+remote_user = princewillopah
+private_key_file = ~/.ssh/id_rsa
 inventory = inventory/hosts
 EOF
 
