@@ -2,7 +2,7 @@
 
 # Check if the repo_list.txt file exists .
 if [ ! -f "repo_list.txt" ]; then
-    echo "Error: repo_list.txt not found. Create the file and add Git repository URLs."
+    echo "Errors: repo_list.txt not found. Create the file and add Git repository URLs."
     exit 1
 fi
 
