@@ -1,0 +1,51 @@
+--------------------------------------------------------------------------------------------------------
+QUESTION:
+You have been using your backup script at work for some time now, and you have
+discovered a few issues that you would like to address.
+Firstly, your script is not giving any output to the user. It would be nice to tell the user
+that the script is running to give them a bit of reassurance that their valuable data is
+indeed being backed up.
+Secondly, some of your colleagues struggle to use the script because they do not
+have a bash_course directory on their system. To get around this issue, you want to
+modify the script so that it creates a backup in whatever directory the user runs the
+script from.
+
+SOLUTION:
+Step 1: creat the user and let them know you are backing up their home directory
+--
+content_dir=$(pwd)
+echo "Hello  ${USER}"
+echo "I will now back up your home directory, ${content_dir}"
+
+--------------------------------------------------------------------------------------------------------
+++ create 12 folders with each representing the month of the year
+++ in each of these 12 folders, create a .txt file representing the days of that month
+
+SOLUTION:
+
+touch yearlyTask/Month{01..12}/day{01..31}.txt
+
+
+FOR MORE ADVANCED METHOD
+
+#!/bin/bash
+
+mkdir -p YearlyTask
+
+days_in_month=(31 28 31 30 31 30 31 31 30 31 30 31)
+
+for ((month=1; month<=12; month++)); do
+    mkdir -p "YearlyTask/Month$(printf "%02d" $month)"
+    
+    # Determine the number of days in the current month
+    days=${days_in_month[$((month-1))]}
+
+    # Create files for each day in the current month
+    for ((day=1; day<=$days; day++)); do
+        touch "YearlyTask/Month$(printf "%02d" $month)/day$(printf "%02d" $day).txt"
+    done
+done
+
+--------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------
