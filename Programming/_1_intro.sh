@@ -1,3 +1,3 @@
 #! /bin/bash
 
-echo "Hello world, shell scripting"
+echo "Hello world, shell scripting!"
