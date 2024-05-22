@@ -3,7 +3,6 @@ https://github.com/princewillopah/CI-withJenkins-CD-withJenkins-Swiggy.git
 https://github.com/princewillopah/JENKINS_SHARED_LIBRARY.git
 https://github.com/princewillopah/cicd-useful-materials-1.git
 https://github.com/princewillopah/dynamic-websites.git
-https://github.com/princewillopah/Bash-script.git
 https://github.com/princewillopah/DevOps-CI-withJenkins-CD-withArgoCD-reg-app-gitops-repo.git
 https://github.com/princewillopah/Java.git
 https://github.com/princewillopah/cicd-with-jenkins-1.git
