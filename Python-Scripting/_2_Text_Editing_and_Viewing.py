@@ -1,3 +1,9 @@
+import os
+import shutil
+import subprocess
+
+
+
 # Edits a file with a text editor (Example: nano)
 def edit_file_with_nano(path):
     subprocess.run(['nano', path])

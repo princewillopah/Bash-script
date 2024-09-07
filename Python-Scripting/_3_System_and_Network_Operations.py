@@ -1,3 +1,8 @@
+import os
+import shutil
+import subprocess
+
+
 # Finds files in a system’s database
 def locate(pattern):
     return subprocess.run(['locate', pattern], capture_output=True, text=True).stdout
