@@ -3,13 +3,13 @@
 name="PrINCEwill"
 
 #${name,} will Make the first latter to lowercase
-echo "Make the first latter of ${name} to lowercase:  ${name,} " 
+echo "Make the first letter of ${name} to lowercase:  ${name,} " 
 
 #${name,,} will Make all latter to lowercase
 echo "Make all letters of ${name} to lowercase:  ${name,,} "
 
 #${name,} will Make the first latter to lowercase
-echo "Make the first latter of ${name} to uppercase:  ${name^} "
+echo "Make the first letter of ${name} to uppercase:  ${name^} "
 
 #${name,,} will Make all latter to lowercase
 echo "Make all letters of ${name} to lowercase:  ${name^^} "
