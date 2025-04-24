@@ -1,6 +1,7 @@
 
-
-
+https://linuxconfig.org/bash-scripting-tutorial
+https://www.freecodecamp.org/news/bash-scripting-tutorial-linux-shell-script-and-command-line-for-beginners/#heading-basic-bash-commands-echo-read-etc
+https://ryanstutorials.net/bash-scripting-tutorial/bash-variables.php
 
 
 
