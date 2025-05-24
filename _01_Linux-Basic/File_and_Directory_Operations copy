@@ -1,0 +1,327 @@
+📂 File & Directory Operations
+
+### ============================================================================================================================================================================
+### Print current working directory
+### ===========================================================================================================================================================================
+
+# pwd
+
+pwd
+ 
+
+
+
+
+
+
+
+
+### ============================================================================================================================================================================
+### List directory contents
+### ===========================================================================================================================================================================
+# 
+ls
+# ls -l
+# Long listing format
+ls -l
+# ls -a
+# List all files including hidden
+ls -a
+
+
+### ============================================================================================================================================================================
+### Change directory
+### ===========================================================================================================================================================================
+# cd /path/to/dir
+# 
+cd /path/to/dir
+
+
+### ============================================================================================================================================================================
+### Create an empty file / Directory
+### ===========================================================================================================================================================================
+# touch file.txt
+# 
+touch file.txt
+
+# mkdir new_folder
+# Create a new directory
+mkdir new_folder
+
+# mkdir -p parent/child
+# Create parent and child directories
+mkdir -p parent/child
+
+### ============================================================================================================================================================================
+### Remove files and directories 
+### ===========================================================================================================================================================================
+# 
+# Remove a file
+rm file.txt
+
+
+# rm -rf folder/rmdir folder
+# Remove a directory and its contents
+rm -rf folder/rmdir folder
+
+
+### ============================================================================================================================================================================
+### Copy files or directories
+### ===========================================================================================================================================================================
+
+# cp source dest
+# 
+cp source dest
+
+### ============================================================================================================================================================================
+### Move or rename files or directories
+### ===========================================================================================================================================================================
+# mv old_name new_name
+# 
+mv old_name new_name
+
+mv child5/subfolder3/*.{doc,txt} test  # move all .doc and .txt files from child5/subfolder3 to test directory
+mv child5/subfolder3/* test  # move all files from child5/subfolder3 to test directory
+### ============================================================================================================================================================================
+### 
+### ===========================================================================================================================================================================
+# stat file
+# Show file metadata (last modified, owner, etc)
+stat file
+
+
+### ============================================================================================================================================================================
+### Find File/Directory
+### ===========================================================================================================================================================================
+
+
+# find / -name filename
+# Find file by name
+find / -name filename
+
+find [path] [options] [expression]
+	• [path] — where you want to start the search (. for current directory)
+	• [options] — how you want to search (by name, type, etc.)
+[expression] — what you’re looking for
+    • -name — name of the file
+    • -type — type of file (f for file, d for directory)
+    • -size — size of the file
+    • -mtime — last modified time
+    • -perm — permissions of the file
+    • -user — owner of the file
+    • -group — group of the file
+    • -exec — execute a command on the found files
+    • -print — print the found files
+    • -delete — delete the found files
+    • -maxdepth — maximum depth of the search
+    • -mindepth — minimum depth of the search
+    • -iname — case-insensitive name search
+    • -regex — regular expression search
+    • -not — negate the search
+    • -or — logical OR
+    • -and — logical AND
+    • -empty — empty files or directories
+    • -perm /mode — files with specific permissions
+    • -links — number of links to the file
+    • -user username — files owned by a specific user
+    • -group groupname — files owned by a specific group
+    • -newer file — files newer than a specific file
+    • -exec command {} \; — execute a command on the found files
+    • -ok command {} \; — execute a command on the found files with confirmation
+    • -print0 — print the found files with null character as delimiter
+    • -type f — regular file
+    • -type d — directory
+    • -type l — symbolic link
+    • -type c — character device
+    • -type p — named pipe
+    • -type z — compressed file
+    • -type e — empty file
+    • -type r — readable file
+    • -type w — writable file
+    • -type s — socket
+    • -type b — block device
+    • -type x — executable file
+
+Find Folders Only
+find /path/to/search -type d -name "folder_name"
+# Find Files Only
+find /path/to/search -type f -name "file_name"
+# Find Files with Specific Extension
+find /path/to/search -type f -name "*.txt"
+# Find Files Larger than a Certain Size
+find /path/to/search -type f -size +100M
+# Find Files Modified in the Last 7 Days
+find /path/to/search -type f -mtime -7
+# Find Files Owned by a Specific User
+find /path/to/search -type f -user username
+# Find Files with Specific Permissions
+find /path/to/search -type f -perm 644
+# Find Files with Specific Name Pattern
+find /path/to/search -type f -name "file_*.txt"
+# Find Files with Specific Name Pattern (Case Insensitive)
+find /path/to/search -type f -iname "file_*.txt"
+# Find Files with Specific Name Pattern (Regular Expression)
+find /path/to/search -type f -regex ".*\.txt"
+# Find Files with Specific Name Pattern (Regular Expression) and Execute Command
+find /path/to/search -type f -regex ".*\.txt" -exec command {} \;
+# Find Files with Specific Name Pattern (Regular Expression) and Execute Command with Confirmation
+find /path/to/search -type f -regex ".*\.txt" -ok command {} \;
+# Find Files with Specific Name Pattern (Regular Expression) and Print
+find /path/to/search -type f -regex ".*\.txt" -print
+# Find Files with Specific Name Pattern (Regular Expression) and Print with Null Character as Delimiter
+find /path/to/search -type f -regex ".*\.txt" -print0
+# Find Files with Specific Name Pattern (Regular Expression) and Delete
+find /path/to/search -type f -regex ".*\.txt" -delete
+# Find Files with Specific Name Pattern (Regular Expression) and Print with Null Character as Delimiter and Execute Command
+find /path/to/search -type f -regex ".*\.txt" -print0 | xargs -0 command
+# Find Files with Specific Name Pattern (Regular Expression) and Print with Null Character as Delimiter and Execute Command with Confirmation
+find /path/to/search -type f -regex ".*\.txt" -print0 | xargs -0 -I {} command {}
+# Find Files with Specific Name Pattern (Regular Expression) and Print with Null Character as Delimiter and Execute Command with Confirmation and Delete
+find /path/to/search -type f -regex ".*\.txt" -print0 | xargs -0 -I {} command {} -delete
+# Find Files with Specific Name Pattern (Regular Expression) and Print with Null Character as Delimiter and Execute Command with Confirmation and Delete and Print
+find /path/to/search -type f -regex ".*\.txt" -print0 | xargs -0 -I {} command {} -delete -print
+# Find Files with Specific Name Pattern (Regular Expression) and Print with Null Character as Delimiter and Execute Command with Confirmation and Delete and Print with Null Character as Delimiter
+find /path/to/search -type f -regex ".*\.txt" -print0 | xargs -0 -I {} command {} -delete -print0
+# Find Files with Specific Name Pattern (Regular Expression) and Print with Null Character as Delimiter and Execute Command with Confirmation and Delete and Print with Null Character as Delimiter and Execute Command
+find /path/to/search -type f -regex ".*\.txt" -print0 | xargs -0 -I {} command {} -delete -print0 | xargs -0 command
+# Find Files with Specific Name Pattern (Regular Expression) and Print with Null Character as Delimiter and Execute Command with Confirmation and Delete and Print with Null Character as Delimiter and Execute Command with Confirmation
+find /path/to/search -type f -regex ".*\.txt" -print0 | xargs -0 -I {} command {} -delete -print0 | xargs -0 -I {} command {}
+# Find Files with Specific Name Pattern (Regular Expression) and Print with Null Character as Delimiter and Execute Command with Confirmation and Delete and Print with Null Character as Delimiter and Execute Command with Confirmation and Delete
+find /path/to/search -type f -regex ".*\.txt" -print0 | xargs -0 -I {} command {} -delete -print0 | xargs -0 -I {} command {} -delete
+# Find Files with Specific Name Pattern (Regular Expression) and Print with Null Character as Delimiter and Execute Command with Confirmation and Delete and Print with Null Character as Delimiter and Execute Command with Confirmation and Delete and Print
+find /path/to/search -type f -regex ".*\.txt" -print0 | xargs -0 -I {} command {} -delete -print0 | xargs -0 -I {} command {} -delete -print
+# Find Files with Specific Name Pattern (Regular Expression) and Print with Null Character as Delimiter and Execute Command with Confirmation and Delete and Print with Null Character as Delimiter and Execute Command with Confirmation and Delete and Print with Null Character as Delimiter
+find /path/to/search -type f -regex ".*\.txt" -print0 | xargs -0 -I {} command {} -delete -print0 | xargs -0 -I {} command {} -delete -print0
+# Find Files with Specific Name Pattern (Regular Expression) and Print with Null Character as Delimiter and Execute Command with Confirmation and Delete and Print with Null Character as Delimiter and Execute Command with Confirmation and Delete and Print with Null Character as Delimiter
+find /path/to/search -type f -regex ".*\.txt" -print0 | xargs -0 -I {} command {} -delete -print0 | xargs -0 -I {} command {} -delete -print0 | xargs -0 command            
+
+
+
+
+
+### ============================================================================================================================================================================
+### 
+### ===========================================================================================================================================================================
+
+
+
+### ============================================================================================================================================================================
+### 
+### ===========================================================================================================================================================================
+
+
+
+### ============================================================================================================================================================================
+### 
+### ===========================================================================================================================================================================
+
+
+
+### ============================================================================================================================================================================
+### 
+### ===========================================================================================================================================================================
+
+
+### ============================================================================================================================================================================
+### 
+### ===========================================================================================================================================================================
+
+
+
+### ============================================================================================================================================================================
+### 
+### ===========================================================================================================================================================================
+
+
+
+### ============================================================================================================================================================================
+### 
+### ===========================================================================================================================================================================
+
+
+
+### ============================================================================================================================================================================
+### 
+### ===========================================================================================================================================================================
+
+
+
+### ============================================================================================================================================================================
+### 
+### ===========================================================================================================================================================================
+
+
+
+### ============================================================================================================================================================================
+### 
+### ===========================================================================================================================================================================
+
+
+### ============================================================================================================================================================================
+### 
+### ===========================================================================================================================================================================
+
+
+
+### ============================================================================================================================================================================
+### 
+### ===========================================================================================================================================================================
+
+
+
+### ============================================================================================================================================================================
+### 
+### ===========================================================================================================================================================================
+
+
+
+### ============================================================================================================================================================================
+### 
+### ===========================================================================================================================================================================
+
+
+
+### ============================================================================================================================================================================
+### 
+### ===========================================================================================================================================================================
+
+
+
+### ============================================================================================================================================================================
+### 
+### ===========================================================================================================================================================================
+
+
+### ============================================================================================================================================================================
+### 
+### ===========================================================================================================================================================================
+
+
+
+### ============================================================================================================================================================================
+### 
+### ===========================================================================================================================================================================
+
+
+
+### ============================================================================================================================================================================
+### 
+### ===========================================================================================================================================================================
+
+
+
+### ============================================================================================================================================================================
+### 
+### ===========================================================================================================================================================================
+
+
+
+### ============================================================================================================================================================================
+### 
+### ===========================================================================================================================================================================
+
+
+
+### ============================================================================================================================================================================
+### 
+### ===========================================================================================================================================================================

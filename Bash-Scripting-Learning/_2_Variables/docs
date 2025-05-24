@@ -1,0 +1,72 @@
+-----------------------------------------
+NOTE: 
+-----------------------------------------
+1. No spaces around =.
+    
+    name="Princewill"                           # String
+    env="dev"                                   # String
+    count=5                                     # Integer           
+    FILES=$(ls /tmp)                            # Command output stored in variable 
+    BACKUP_DIR="/backups/$(date +%Y-%m-%d)"     # path
+
+2. To access the decleared variables, use ${variable} or $variable to access the value
+   echo "My name is $name"
+   echo "My name is ${name}"
+
+
+3. Strings don’t need quotes, but quotes help avoid issues with spaces or special characters.
+    echo "User: $NAME"       # Output: User: John
+    echo "Count: ${COUNT}x"  # Curly braces for clarity
+
+4. Built-in Special variables
+    echo ""
+    echo $PATH
+    echo $HOME
+    echo $USER
+    echo $PWD
+    echo $HOSTNAME
+    echo $HOSTTYPE
+
+5. Variables are global by default; use local in functions for local scope
+    my_func() {
+    local name="InsideFunc"
+    echo "Inside: $name"
+    }
+
+    `Use local inside functions to prevent polluting the global scope.`
+
+
+
+6. To have a `Read-Only` Variables
+        readonly VERSION="1.0"          # this is set initially
+        VERSION="2.0"                   # trying to change its value will result to `Error: cannot modify`
+
+7. Unset Variables
+    unset name
+
+
+
+8. Default Values & Fallbacks
+    echo ${env:-"default_env"}   # If env is unset, use default_env
+    echo ${env:="set_dev"}       # If env is unset, set it to set_dev
+
+9. Special Variables
+    | Variable        | Meaning                                                                                     |
+    | --------------- | ------------------------------------------------------------------------------------------- |
+    | `$0`            | Script name                                                                                 |
+    | `$1`, `$2`, ... | First, second arg                                                                           |
+    | `$#`            | Number of args                                                                              |
+    | `$@`, `$*`      | All args                                                                                    |
+    | `$?`            | holds the exit status of the most recently(last) executed command                           |
+    | `$$`            | PID of script                                                                               |
+    | `$!`            | PID of last background job                                                                  |
+
+10. Exit Codes
+    - Every command returns an exit code ($?): 
+        - 0 for success, 
+        - non-zero (e.g., 1, 2) for failure.
+    - Use exit codes to handle errors or control script flow.
+    - Custom exit codes: exit 1 to indicate specific failures.
+
+
+    

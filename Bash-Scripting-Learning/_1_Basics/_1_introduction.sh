@@ -1,36 +1,98 @@
 #! /bin/bash
 
+echo
 ### =============================================================================
 ### intro
 ### =============================================================================
 
-echo "hello world" " to bash scripting"
-echo "Today is " `date`
+# echo "hello world" " to bash scripting"
+# echo "Today is " `date`
 ### =============================================================================
 ### intro
 ### =============================================================================
 
-# Ask the user for the project name (root folder name)
-read -p "Enter Topic Name: " topic_name  # 
+# # Ask the user for the project name (root folder name)
+# read -p "Enter Topic Name: " topic_name  # 
 
-touch $topic_name  # Create file in the current directory
+# touch $topic_name  # Create file in the current directory
 
-# cat <<EOF > "$project_root_dir/playbooks/example2.yml"
+# # cat <<EOF > "$project_root_dir/playbooks/example2.yml"
 
-chmod +x $topic_name  # change file permission to executable
-echo "'$topic_name' created successfully."  # anounce you have created the file 
+# chmod +x $topic_name  # change file permission to executable
+# echo "'$topic_name' created successfully."  # anounce you have created the file 
 
 
-echo -e "\nenter the path to directory"
-read the_path
+# echo -e "\nenter the path to directory"
+# read the_path
 
-echo -e "\n your path has the following files and folders: "
-ls $the_path
+# echo -e "\n your path has the following files and folders: "
+# ls $the_path
 
 ### ==========================================================================================================================================================
 ### 
 ### ==========================================================================================================================================================
 
+printf "%-15s %-14s %-15s %-15s %-10s %-10s %-10s \n" "FirstName" "LastName" "Age" "Integer" "Hex" "Float" "PRICE"
+printf "==============================================================================================\n" 
+
+# printf "%-15s %-14s %-15d %-15d %-10.2f %-10.2f %-10s \n" "Prince" "Opah" 25 255 3.4356 2500 ""
+# printf "%-15s %-14s %-15d %-15d %-10X %-10.2f %-10d \n" "John" "Doe" 28 1 255 3.14 1500
+# printf "%-15s %-14s %-15d %-15d %-10s %-10s %-10s \n" "Alice" "" 30 "" "" "" ""
+# printf "%-15s %-14s %-15d %-15d %-10s %-10s %-10s \n" "Bob" "" 25 "" "" "" ""
+
+firstNames=("Prince" "Alice" "Bob" "" "" "" "")   
+lastNames=("Opah" "" "Doe" "" "Smith" "" "Brown")
+ages=(25 30 25 0 0 0 0 )
+decimals=(255 0 0 0 0 0 0)
+hexValues=(7676 "" "" "" "" "" "")
+floats=(0.345 84.0 0.0 3.0 0.0 23.4 0.0)
+prices=(2500 0 344 0 34 0 0)
+
+for i in "${!firstNames[@]}"; do
+    printf "%-15s %-14s %-15d %-15d %-10X %-10.2f %-10d \n" "${firstNames[$i]}" "${lastNames[$i]}" "${ages[$i]}" "${decimals[$i]}" "${hexValues[$i]}" "${floats[$i]}" "${prices[$i]}"
+done
+
+
+
+# for ((i=0; i<${#firstNames[@]}; i++)); do
+
+#     age=${ages[$i]:-0}
+#     decimal=${decimals[$i]:-0}
+#     hex=${hexValues[$i]:-""}
+#     float=${floats[$i]:-0.0}
+#     price=${prices[$i]:-0.0}
+#     hex=${hex:-$(printf "%X" $decimal)}  # Convert decimal to hex if hex is empty
+#     hex=${hex:-"0"}  # Ensure hex is not empty
+#     # If hex is empty, set it to "0"
+#     # If float is empty, set it to 0.0
+#     # If price is empty, set it to 0.0
+#     # If decimal is empty, set it to 0
+#     # If age is empty, set it to 0
+
+
+#     printf "%-15s %-14s %-15d %-15d %-10s %-10.2f %-10.2f \n" 
+#         "${firstNames[$i]}" "${lastNames[$i]}" "${ages[$i]}" "${decimals[$i]}" "${hexValues[$i]}" "${floats[$i]}" "${prices[$i]}"
+# done
+
+
+printf "==============================================================================================\n" 
+printf "THE TOTAL PRICE IS: %70d\n"  2500
+printf "==============================================================================================\n" 
+
+
+
+
+
+printf "%-20s %-10s %-10s\n" "Username" "UID" "Shell" 
+printf "==============================================================================================\n" 
+
+
+awk -F: '{printf "%-20s %-10s %-10s\n", $1, $3, $7}' /etc/passwd | head -5
+
+### ==========================================================================================================================================================
+###
+### ==========================================================================================================================================================
+
 
 
 ### ==========================================================================================================================================================
@@ -81,12 +143,6 @@ ls $the_path
 
 
 
-### ==========================================================================================================================================================
-###
-### ==========================================================================================================================================================
-
-
-
 
 ### ==========================================================================================================================================================
 ###
@@ -223,3 +279,4 @@ ls $the_path
 ### ==========================================================================================================================================================
 ###
 ### ==========================================================================================================================================================
+echo

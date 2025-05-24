@@ -1,0 +1,166 @@
+Let's dive into how the cut command works:
+
+*What is cut?*
+
+cut is a command-line utility that allows you to extract a specific portion of a text file or a string.
+
+Basic Syntax
+
+The basic syntax of cut is:
+
+
+cut [options] file
+
+
+Or, if you're working with a string:
+
+
+echo "string" | cut [options]
+
+
+Common Options
+
+Here are some common options used with cut:
+
+- -c: Extract a specific character or range of characters.
+- -d: Specify a delimiter to separate fields.
+- -f: Extract a specific field or range of fields.
+
+Example: Extracting a Field
+
+Suppose you have a string:
+
+"hello,world,foo,bar"
+
+
+To extract the second field ("world") using cut, you would:
+
+
+echo "hello,world,foo,bar" | cut -d ',' -f 2
+
+
+Here:
+
+- -d ',' specifies that the delimiter is a comma.
+- -f 2 specifies that you want to extract the second field.
+
+Example: Extracting a Character Range
+
+Suppose you have a string:
+
+
+"abcdefghijklmnopqrstuvwxyz"
+
+
+To extract the first 5 characters using cut, you would:
+
+
+echo "abcdefghijklmnopqrstuvwxyz" | cut -c 1-5
+
+
+Here:
+
+- -c 1-5 specifies that you want to extract characters 1 through 5.
+
+I hope this helps you understand how cut works!
+
+------------------------------------------------------------------------------------------------
+df / --output=pcent | tail -1 | tr -d '% '
+
+This is a pipeline of three commands:
+
+1. df / --output=pcent:
+    - df is the command to display disk usage statistics.
+    - / specifies the file system to report on (in this case, the root file system).
+    - --output=pcent specifies that we want to display only the percentage of used disk space.
+2. tail -1:
+    - tail is a command to display the last part of a file or output.
+    - -1 specifies that we want to display only the last line of the output.
+3. tr -d '% ':
+    - tr is a command to translate or delete characters.
+    - -d specifies that we want to delete the specified characters.
+    - '% ' specifies that we want to delete the percentage sign (%) and the space character.
+
+So, when we run this pipeline, here's what happens:
+
+1. df displays the disk usage statistics for the root file system, showing only the percentage of used disk space.
+2. tail takes the output and displays only the last line, which contains the percentage value.
+3. tr takes the last line and deletes the percentage sign and the space character, leaving only the numerical value.
+
+The final output is the percentage of used disk space on the root file system, without the percentage sign or any trailing spaces.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Method 1: Using Regular Expressions
+
+bash
+if ! [[ "$number" =~ ^[0-9]+$ ]]; then
+  echo "Invalid number"
+  exit 1
+fi
+
+
+This will check if the input $number contains only digits.
+
+Method 2: Using a Conditional Statement
+
+bash
+if ! [[ $number =~ ^-?[0-9]+$ ]]; then
+  echo "Invalid number"
+  exit 1
+fi
+
+
+This will check if the input $number is an integer, optionally with a leading minus sign.
+
+Method 3: Using a Function
+
+bash
+validate_number() {
+  if ! [[ $1 =~ ^-?[0-9]+$ ]]; then
+    echo "Invalid number"
+    exit 1
+  fi
+}
+
+# Usage:
+number="123"
+validate_number "$number"
+
+
+You can choose the method that best fits your needs.
+
+
+
+1. if: This is a conditional statement that checks whether a certain condition is true or false.
+2. !: This is a negation operator that inverts the result of the condition. In other words, it checks whether the condition is false.
+3. [[ ]]: This is a test command that checks whether a certain condition is true or false. It's similar to the [ ] test command, but it's more powerful and flexible.
+4. "$option" =~ ^[1-4]$: This is a regular expression match that checks whether the value of the option variable matches a certain pattern. Here's how it works:
+    - =~: This is the regular expression match operator.
+    - ^: This is the start-of-line anchor, which ensures that the match starts at the beginning of the string.
+    - [1-4]: This is a character class that matches any digit between 1 and 4 (inclusive).
+    - $: This is the end-of-line anchor, which ensures that the match ends at the end of the string.
+5. then: If the condition is true (i.e., the option variable does not match the pattern), then the code inside the then block is executed.
+6. echo "Invalid option. ...": This prints an error message to the console.
+7. exit 1: This exits the script with a non-zero status code, indicating that an error occurred.
+8. fi: This marks the end of the if statement.
+
+
+In bash, `>&2` is a redirection operator that sends the output to the standard error stream (stderr) instead of the standard output stream (stdout).
+
+So, when you run:
+
+
+
+echo "Invalid choice" >&2
+
+
+The message "Invalid choice" will be printed to stderr instead of stdout.
+
+But why would you want to do that?
+
+Here are a few reasons:
+
+1. Error messages: By sending error messages to stderr, you can separate them from regular output. This makes it easier to handle errors and warnings in your scripts.
+2. Preserving output: When you redirect output to a file or another command, stderr messages will still be printed to the console. This ensures that important error messages aren't lost.
+3. Scripting: In scripts, it's a good practice to send error messages to stderr. This allows the script to continue running even if there are errors, while still providing useful feedback.
