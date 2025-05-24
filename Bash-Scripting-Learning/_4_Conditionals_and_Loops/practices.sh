@@ -6,11 +6,35 @@
 ### if
 ### ==========================================================================================================================================================
 
-# read -p "Enter a number: " num
+
 # if [ "$num" -gt 0 ]; then
+#     echo "${num} is a positive number"
+# elif [ "$num" -lt 0 ]; then
+#     echo "${num} is a negative number"
+# else
+#     echo "${num} is zero"
+# fi
+read -p "Enter a number: " num
+# if [ "$num" -gt 0 ]; then   # if the number is greater than 0
 #     echo "${num} is a positive number"
 # fi
 
+if [ $num -gt 0 ]; then
+    echo "${num} is a positive number"
+else
+    echo "${num} is a negative number or zero"
+fi
+# if [ "$num" -lt 0 ]; then   # if the number is less than 0
+
+
+
+# if [ "$age" -lt 18 ]; then   # if the age is less than 18
+#     echo "You are a minor"
+# elif [ "$age" -ge 18 ] && [ "$age" -lt 60 ]; then   # if the age is between 18 and 60
+#     echo "You are an adult"
+# else   # if the age is 60 or above
+#     echo "You are a senior citizen"
+# fi
 
 
 
