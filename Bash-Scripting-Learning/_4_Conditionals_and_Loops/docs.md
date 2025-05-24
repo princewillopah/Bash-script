@@ -70,7 +70,6 @@ NOTE:
         commands
     fi
 
-
     if [ condition ]; then
         commands
     else

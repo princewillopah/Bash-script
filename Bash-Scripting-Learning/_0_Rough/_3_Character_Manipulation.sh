@@ -1,5 +1,17 @@
 #! /bin/bash
 
+clear
+echo "---------------------------------------------------------------------------------------------------------------"
+echo ""
+
+
+
+
+
+
+
+
+
 name="PrINCEwill"
 
 #${name,} will Make the first latter to lowercase
@@ -43,6 +55,16 @@ echo "Current date and time: $my_time"
 # Word Splitting -- "A process the shell performs to split the result of some unquoted expansions into seperate words"
 #-----------------------------------------------------------------------------
 #Word splitting is only performed on the result of "unquoted" parameter expansions, command substitutions, arithmentic expansion
+
+
+
+
+
+
+echo ""
+echo "---------------------------------------------------------------------------------------------------------------"
+
+
 
 
 

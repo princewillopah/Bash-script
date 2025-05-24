@@ -77,17 +77,41 @@ for num in 1 2 34 40 -55; do
 done
 echo "Sum of array elements: $sum"  # Output: Sum of array elements: 15
 
-# first iteration: sum = 0 + 1 = 1 # when num = 1
-# second iteration: sum = 1 + 2 = 3 # when num = 2
-# third iteration: sum = 3 + 34 = 37 # when num = 34
-# fourth iteration: sum = 37 + 40 = 77 # when num = 40
-# fifth iteration: sum = 77 + -55 = 22 # when num = -55
+## first iteration: sum = 0 + 1 = 1 # when num = 1
+## second iteration: sum = 1 + 2 = 3 # when num = 2
+## third iteration: sum = 3 + 34 = 37 # when num = 34
+## fourth iteration: sum = 37 + 40 = 77 # when num = 40
+## fifth iteration: sum = 77 + -55 = 22 # when num = -55
 
 
 
 
 # echo "Sum of array elements: $sum"  # Output: Sum of array elements: 15
 # echo "Using arithmetic expansion with floating-point numbers (requires bc):"
+# float_a=5.5
+# float_b=2.2
+# float_result=$(echo "$float_a + $float_b" | bc)
+# echo "Result of floating-point addition: $float_result"  # Output: 7.7
+# echo "Using arithmetic expansion with floating-point numbers (using awk):"
+# float_result=$(awk "BEGIN {print $float_a + $float_b}")
+# echo "Result of floating-point addition using awk: $float_result"  # Output: 7.7
+# echo "Using arithmetic expansion with floating-point numbers (using printf):"
+# float_result=$(printf "%.2f" "$(echo "$float_a + $float_b" | bc)")
+# echo "Result of floating-point addition using printf: $float_result"  # Output: 7.70
+# echo "Using arithmetic expansion with floating-point numbers (using bc with scale):"
+# float_result=$(echo "scale=2; $float_a + $float_b" | bc)
+# echo "Result of floating-point addition with scale: $float_result"  # Output: 7.70
+# echo "Using arithmetic expansion with floating-point numbers (using awk with precision):"
+# float_result=$(awk "BEGIN {printf \"%.2f\", $float_a + $float_b}")
+# echo "Result of floating-point addition using awk with precision: $float_result"  # Output: 7.70
+# echo "Using arithmetic expansion with floating-point numbers (using printf with precision):"
+# float_result=$(printf "%.2f" "$(awk "BEGIN {print $float_a + $float_b}")")
+# echo "Result of floating-point addition using printf with precision: $float_result"  # Output: 7.70
+# echo "Using arithmetic expansion with floating-point numbers (using bc with precision):"
+# float_result=$(echo "scale=2; $float_a + $float_b" | bc)
+
+------------------------------------------------------------------------------------------------------
+
 
 
 

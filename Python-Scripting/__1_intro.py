@@ -3,12 +3,13 @@ import os
 ## --------------------------------------------------------
 ## pwd --> os.getcwd()
 ## --------------------------------------------------------
-# print(os.getcwd())   # it returns the path of the current working dir. e.g./home/princewillopah/DevOps/Bash-script/Python-Scripting
-# print(os.path.split(os.getcwd())) # os.path.split splits the leaf level of the path from the parent path
-# print(os.path.basename(os.getcwd())) # os.path.dirname returns the parent path  --   C:\Users\PB\DevOps\
-# print(os.path.dirname(os.getcwd())) # os.path.basename returns the leaf name   -- Git-Repos
+## dir = /home/princewillopah/DevOps/Bash-script/Python-Scripting
+# print(os.getcwd())   # it returns the path of the current working dir. --  e.g./home/princewillopah/DevOps/Bash-script/Python-Scripting
+# print(os.path.split(os.getcwd())) # os.path.split splits the leaf level of the path from the parent path --  ('/home/princewillopah/DevOps/Bash-script', 'Python-Scripting')
+# print(os.path.basename(os.getcwd())) # os.path.dirname returns the parent path  --   Python-Scripting
+# print(os.path.dirname(os.getcwd())) # os.path.basename returns the leaf name   -- /home/princewillopah/DevOps/Bash-script
 # print(os.path.join(os.getcwd(), "test.txt"))  # it will return /home/princewillopah/DevOps/Bash-script/Python-Scripting/test.txt
-# 
+
 
 ## --------------------------------------------------------
 ## ls -l --> os.listdir()
