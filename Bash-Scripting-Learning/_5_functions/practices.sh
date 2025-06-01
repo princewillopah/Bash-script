@@ -10,6 +10,7 @@ echo
 # greet() {
 #     echo "Hello, World!"
 # }
+# # Call the function
 # greet
 
 # -----------------------------------------------------
@@ -57,7 +58,9 @@ echo
 # Task: say hello
 # -----------------------------------------------------
 # greet() {
-#     echo "Hello, $1!"
+#     echo "Hello, $@"
+#     echo "Hello, $1"
+#        echo "Hello, $2"
 
 #     local str="$1"
 #     local reversed_str=""
@@ -68,10 +71,19 @@ echo
 #     done
 
 #     echo "Your name can be reversed as" "$reversed_str"
+#     echo
 # }
 
-# greet "Alice"
+
+
+
+# greet
+# greet "John"
 # greet "Bob"
+# greet "Alice" "John"
+
+
+
 ## -----------------------------------------------------
 ## Task: Create a function that displays the current weather (using curl and a weather API):
 ## -----------------------------------------------------
@@ -82,7 +94,14 @@ echo
 # }
 
 # # Call it
-# get_weather London
+# get_weather Chicago
+# get_weather "Los Angeles"
+# get_weather "San Francisco"
+# get_weather "London"
+# get_weather "Tokyo"
+# get_weather "Paris"
+# get_weather "Berlin"
+# get_weather "Lagos"
 # get_weather  # Uses default
 
 
@@ -123,11 +142,14 @@ echo
 # Task: Create a function that takes two numbers and returns their sum:
 # -----------------------------------------------------
 # add() {
-#     local num1=$1
-#     local num2=$2
-#     local sum=$((num1 + num2))
-#     echo "The sum of $num1 and $num2 is: $sum"
+#     # local num1=$1
+#     # local num2=$2
+#     # local sum=$((num1 + num2))
+#     # echo "The sum of $num1 and $num2 is: $sum"
+
+#     echo "The sum of $1 and $2 is: $(($1 + $2))"
 # }
+
 # add 5 10
 # add 20 30
 # add 100 200
@@ -149,6 +171,11 @@ echo
 # read -p "Enter your number: " num
 # validate_number $num && echo "$num is a valid number" || echo "$num is an invalid number"
 
+# if validate_number $num; then
+#     echo "$num is a valid number"
+# else
+#     echo "$num is an invalid number"
+# fi
 
 
 
@@ -162,6 +189,8 @@ echo
 # }
 
 # show_args "one" "two" "three"
+# show_args "one" "two" "three" "four" "five"
+# show_args "one" "two" "three" "four" "five" "six" "seven" "eight" "nine" "ten"
 # -----------------------------------------------------
 # Task: Create a function that takes a name as an argument and displays a greeting message:
 # -----------------------------------------------------
@@ -354,20 +383,20 @@ echo
 
 
 
-dir_size() { 
-    local dir=$1
-    local size=0
-    for item in "$dir"/*; do
-        if [ -d "$item" ]; then
-            size=$((size + $(dir_size "$item")))
-        elif [ -f "$item" ]; then
-            size=$((size + $(stat -c %s "$item" 2>/dev/null || echo 0)))
-        fi
-    done
-    echo $size
-}
-size=$(dir_size ".")
-echo "Total size: $size bytes"
+# dir_size() { 
+#     local dir=$1
+#     local size=0
+#     for item in "$dir"/*; do
+#         if [ -d "$item" ]; then
+#             size=$((size + $(dir_size "$item")))
+#         elif [ -f "$item" ]; then
+#             size=$((size + $(stat -c %s "$item" 2>/dev/null || echo 0)))
+#         fi
+#     done
+#     echo $size
+# }
+# size=$(dir_size ".")
+# echo "Total size: $size bytes"
 
 
 # - The for loop iterates over the contents of the input directory ("$dir"/*).
