@@ -7,6 +7,7 @@
 ### ==========================================================================================================================================================
 
 
+
 # if [ "$num" -gt 0 ]; then
 #     echo "${num} is a positive number"
 # elif [ "$num" -lt 0 ]; then
@@ -14,19 +15,20 @@
 # else
 #     echo "${num} is zero"
 # fi
-read -p "Enter a number: " num
-# if [ "$num" -gt 0 ]; then   # if the number is greater than 0
+# --------------------
+# read -p "Enter a number: " num
+# # if [ "$num" -gt 0 ]; then   # if the number is greater than 0
+# #     echo "${num} is a positive number"
+# # fi
+
+# if [ $num -gt 0 ]; then
 #     echo "${num} is a positive number"
+# else
+#     echo "${num} is a negative number or zero"
 # fi
+# # if [ "$num" -lt 0 ]; then   # if the number is less than 0
 
-if [ $num -gt 0 ]; then
-    echo "${num} is a positive number"
-else
-    echo "${num} is a negative number or zero"
-fi
-# if [ "$num" -lt 0 ]; then   # if the number is less than 0
-
-
+# ------------------------
 
 # if [ "$age" -lt 18 ]; then   # if the age is less than 18
 #     echo "You are a minor"
@@ -65,6 +67,82 @@ fi
 #     exit 1
 # fi
 
+# for a in {1..10}; 
+# do 
+#     if [ $((a % 2)) == 0 ]; then
+#         echo "$a is even"
+#     else
+#         echo "$a is odd"
+#     fi
+# done
+# ------------------------------
+# for a in {1..10};
+# do
+
+#     if [ $a -eq 5 ]; then
+#         echo "Skipping number 5"
+#         continue  # Skip the rest of the loop for this iteration
+#     fi
+#     echo $a
+
+# done
+# -------------------------
+# a function to point out the even and odd numbers in a range
+# function even_odd {
+#     for a in {1..10};
+#     do
+#         if [ $a -eq 5 ]; then
+#             echo "Skipping number 5"
+#             continue  # Skip the rest of the loop for this iteration
+#         fi
+#         if [ $((a % 2)) -eq 0 ]; then
+#             echo "$a is even"
+#         else
+#             echo "$a is odd"
+#         fi    
+#     done
+# }
+# even_odd  
+# -----------------------------
+# read -p "Enter a number: " num
+# if [ "$1" -gt 0 ]; then
+#     echo "$1 is a positive number"
+# else
+#     echo "$1 is a negative number or zero"
+# fi
+
+# -----------------------
+
+# read -p "Enter a number: " num
+# if [ -z "$num" ]; then
+#     echo "No number provided. Please enter a number."
+#     exit 1
+# else
+#     if [ "$num" -gt 0 ]; then
+#         echo "$num is a positive number"
+#     elif [ "$num" -lt 0 ]; then
+#         echo "$num is a negative number"
+#     else
+#         echo "$num is zero"
+#     fi
+# fi
+# ------ file checking ------------------
+
+# if [ -f /home/princewillopah/DevOps/Bash-script/Bash-Scripting-Learning/_4_Conditionals_and_Loops/practices.sh ]; then
+#     echo "File exists"
+# else
+#     echo "File does not exist"
+# fi
+# --- dir checking -------------------------
+
+# if [ -d /etc ]; then echo "/etc exists"; fi
+
+# --- input checking -------------------------
+# read -p "Enter a number: " num
+# if [ -z "$num" ]; then
+#     echo "No number provided. Please enter a number."
+#     exit 1
+# else
 
 
 # echo
@@ -155,12 +233,209 @@ fi
 ### ==========================================================================================================================================================
 ### 
 ### ==========================================================================================================================================================
-# #!/bin/bash
+# # #!/bin/bash
 # printf "%*s\n" 50 | tr ' ' '='
 # printf "%-20s %-10s %-10s\n" "Username" "UID" "Shell"
 # # printf "========================================\n"
 # printf "%*s\n" 50 | tr ' ' '='
 # awk -F: '{printf "%-20s %-10s %-10s\n", $1, $3, $7}' /etc/passwd | head -5
+
+### ==========================================================================================================================================================
+### forloop
+### ==========================================================================================================================================================
+
+# for i in 1 2 3 4 5; do
+#     echo "Number: $i"
+# done
+
+# -----------------------------------------------
+
+# for i in {1..5}; do
+#     echo "Number: $i"
+# done
+
+## With step:
+# for i in {1..10..2}; do   # 1 to 10 step 2
+#     echo "Odd: $i"
+# done
+
+### Reverse
+# for i in {5..1}; do
+#     echo "Down: $i"
+# done
+# ----------------------------------------------
+
+# for name in "John" "Linda" "Ada" "Grace" "Rita"; do
+#     echo "Welcome: $name"
+# done
+
+# ----------------------------------------------
+
+
+
+# ----------------------------------------------
+
+
+
+# =============================================
+# C-style For Loop (Traditional)
+# =============================================
+
+### for (( init; condition; increment )); do
+###     commands
+### done
+# ---------------------------------------------
+# for (( i=1; i<=5; i++ )); do
+#     echo "Number: $i"
+# done
+# --------------------------------------------
+# for (( i=5; i>=1; i-- )); do
+#     echo "Countdown: $i"
+# done
+
+
+# =============================================
+# For Loop Over a List (Words or Strings)
+# =============================================
+### for var in item1 item2 item3 ...; do
+###    commands
+### done
+# ----------------------------------------------
+# for fruit in apple banana cherry; do
+#     echo "Fruit: $fruit"
+# done
+
+# ----------------------------------------------
+# a="x"; b="y"; c="z"
+# for item in $a $b $c; do
+#     echo "Item: $item"
+# done
+
+# ----------------------------------------------
+# for val in 1 hello 3.14 true; do
+#     echo "Value: $val"
+# done
+
+## =============================================
+#  For Loop Over Array Elements
+## =============================================
+#fruits=("apple" "banana" "cherry" "date")
+
+## ----------------------------------------------
+# for fruit in "${fruits[@]}"; do
+#     echo "Fruit: $fruit"
+# done
+
+## ----- With index -----------------------------
+# for i in "${!fruits[@]}"; do
+#     echo "Index $i: ${fruits[i]}"
+# done
+### ===========================================
+### For Loop Over Function Output
+### ===========================================
+
+# # Function to get system info
+# get_system_info() {
+#     echo "System Information:"
+#     uname -a
+# }
+
+# # Function to get disk usage
+# get_disk_usage() {
+#     echo "Disk Usage:"
+#     df -h
+# }
+
+# # Loop over function output
+# for info in "$(get_system_info)" "$(get_disk_usage)"; do
+#     echo "$info"
+# done
+
+# ----------------------------------------------
+
+# say() {
+#     echo "Hello from the say function!"
+#     echo "This is a simple function."
+#     echo "It demonstrates how to define and call functions in Bash."
+#     echo "You can pass arguments to functions as well."
+#     echo "For example, you can call this function with a message:"
+#     echo "say 'Your message here'"
+# }
+
+# for sentence in "$(say)"; do
+#     echo "$sentence"
+# done
+# echo ""
+# for sentence in $(say); do
+#     echo "$sentence"
+# done
+
+
+# ----------------------------------------------
+
+
+
+# ----------------------------------------------
+
+
+
+# ----------------------------------------------
+
+
+
+# ----------------------------------------------
+
+
+
+# ----------------------------------------------
+
+
+
+# ----------------------------------------------
+
+
+
+# ----------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### ==========================================================================================================================================================
+### while loop
+### ==========================================================================================================================================================
+#-----------------------------------------------------------------------
+# n=5
+# while true; do
+#     if [ "$n" -le 0 ]; then
+#         break
+#     fi
+#     echo "Hello the ${n}th times"
+#     n=$((n - 1))
+# done
+#-----------------------------------------------------------------------
+# while true; do
+#     read -p "Enter something (type 'exit' to quit): " input
+#     if [ "$input" == "exit" ]; then
+#         break
+#     fi
+#     echo "You typed: $input"
+# done
+#-----------------------------------------------------------------------
+
 
 
 
@@ -436,13 +711,6 @@ echo
 ### While
 ### ==========================================================================================================================================================
 
-# while true; do
-#     read -p "Enter something (type 'exit' to quit): " input
-#     if [ "$input" == "exit" ]; then
-#         break
-#     fi
-#     echo "You typed: $input"
-# done
 
 
 
